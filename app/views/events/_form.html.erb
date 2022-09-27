@@ -12,26 +12,24 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, placeholder: 'Название', class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :date %>
-    <%= form.datetime_select :date %>
+    <%= form.datetime_select :date, class: 'form-control' %>
   </div>
 
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
+    <%= form.text_field :description, placeholder: 'Описание', class: 'form-control' %>
   </div>
 
   <div class="field">
-    <%= form.label :category_id %>
-    <%= form.select :category_id, Category.all.map { |c| [c.title, c.id] }, class: 'form-select' %>
+    <%= form.label 'Категория' %>
+    <%= form.select :category_id, Category.all.map { |c| [c.title, c.id] }, {}, class: 'form-select' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-primary' %>
   </div>
 <% end %>

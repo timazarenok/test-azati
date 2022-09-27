@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: %i[ show edit update destroy ]
 
   def index
-    @q = Event.ransack(params[:q])
+    @q = current_user.events.ransack(params[:q])
     @events = @q.result
   end
 
