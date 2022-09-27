@@ -14,7 +14,7 @@
     </div>
     <div class='col-6'>
       <h1>Погода в этот день</h1>
-      <p>Информация недоступна</p>
+      <p><%= @event.weather ? @event.weather : 'Информация недоступна' %></p>
       <strong>Category:</strong>
       <%= @event.category.title %>
     </div>

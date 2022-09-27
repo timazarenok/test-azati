@@ -27,6 +27,8 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'devise'
 gem 'ransack'
+gem 'http'
+gem 'interactor', '~> 3.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
