@@ -1,0 +1,5 @@
+<div class='container'>
+  <h1>Привет, <%= @user.first_name %>!</h1>
+  <h3>У вас есть <%= @user.comming_events.size %> предстоящих события (<%= @user.today_events.size %> сегодня)</h3>
+  <%= button_to 'Выйти', destroy_user_session_path, method: :delete, class: 'btn btn-primary' %>
+</div>
