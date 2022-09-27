@@ -9,6 +9,7 @@
 <table class='table ms-2'>
   <thead>
     <tr>
+      <th>#</th>
       <th>Название</th>
       <th>Дата события</th>
       <th>Описание</th>
@@ -20,12 +21,15 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
+        <td><%= event.id %></td>
         <td><%= event.title %></td>
         <td><%= event.date %></td>
         <td><%= event.description %></td>
         <td><%= event.category.title %></td>
         <td><%= link_to 'Подробнее', event, class: 'btn btn-outline-primary' %></td>
-        <td><%= link_to 'Редактировать', edit_event_path(event), class: 'btn btn-outline-primary' %></td>
+        <% unless event.date < Date.today %>
+          <td><%= link_to 'Редактировать', edit_event_path(event), class: 'btn btn-outline-primary' %></td>
+        <% end %>
         <td><%= button_to 'Удалить', event_path(event), method: :delete, class: 'btn btn-outline-danger' %></td>
       </tr>
     <% end %>

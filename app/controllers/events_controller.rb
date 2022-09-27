@@ -18,13 +18,12 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(event_params)
-    @event.user = current_user
+    result = CreateEvent.call(params: event_params, user: current_user)
 
-    if @event.save
-      render :show, status: :created, notice: "Event was successfully created."
+    if result.success?
+      redirect_to events_path, notice: "Event was successfully created."
     else
-      render :new, status: :unprocessable_entity
+      redirect_to new_event_path, notice: result.notice
     end
   end
 
@@ -39,7 +38,7 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
 
-    redirect_to event_path, notice: "Category was successfully destroyed."
+    redirect_to events_path, notice: "Category was successfully destroyed."
   end
 
   private
