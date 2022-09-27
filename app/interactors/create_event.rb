@@ -31,8 +31,8 @@ class CreateEvent < BaseInteractor
 
     celcius_temperature = (temperature - 32)
 
-    return "+ #{celcius_temperature * (5/9)} C" if celcius_temperature > 0
-    return "- #{celcius_temperature * (5/9)} C"
+    return "+ #{celcius_temperature * 0.5} C" if celcius_temperature > 0
+    return "- #{celcius_temperature * 0.5} C"
   end
 
   def temperature

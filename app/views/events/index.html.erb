@@ -27,9 +27,11 @@
         <td><%= event.description %></td>
         <td><%= event.category.title %></td>
         <td><%= link_to 'Подробнее', event, class: 'btn btn-outline-primary' %></td>
-        <% unless event.date < Date.today %>
-          <td><%= link_to 'Редактировать', edit_event_path(event), class: 'btn btn-outline-primary' %></td>
-        <% end %>
+        <td>
+          <% unless event.date < Date.today %>
+            <%= link_to 'Редактировать', edit_event_path(event), class: 'btn btn-outline-primary' %>
+          <% end %>
+        </td>
         <td><%= button_to 'Удалить', event_path(event), method: :delete, class: 'btn btn-outline-danger' %></td>
       </tr>
     <% end %>
