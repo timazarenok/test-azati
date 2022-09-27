@@ -1,6 +1,7 @@
 <%= search_form_for @q, remote: true do |f| %>
   <div class='ms-2' style='width: 200px'>
     <%= f.search_field :title_cont, placeholder: 'Search by title...', class: 'form-control' %>
+    <%= f.select :category_id_eq, Category.all.map { |c| [c.title, c.id] }, placeholder: 'Search by category', class: 'form-control' %>
     <%= f.submit class: 'btn btn-primary mt-2 mb-4' %>
   </div>
 <% end %>
