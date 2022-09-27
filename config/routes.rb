@@ -1,3 +1,9 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :events
+  resources :categories
+
+  get 'users/profile', as: 'user_root'
+  devise_for :users
+
+  root to: 'home#index'
 end
